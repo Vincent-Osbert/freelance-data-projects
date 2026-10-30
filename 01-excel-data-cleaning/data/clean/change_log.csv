@@ -1,0 +1,16 @@
+rule,column,rows_changed,example_before,example_after,excel_equivalent
+"Trim, collapse repeated spaces, UPPERCASE dba_name",dba_name,744,Azha Restaurant Inc.,AZHA RESTAURANT INC.,=UPPER(TRIM(dba_name))
+"Trim, collapse repeated spaces, UPPERCASE aka_name",aka_name,665,Azha Restaurant,AZHA RESTAURANT,=UPPER(TRIM(aka_name))
+"Trim, collapse repeated spaces, UPPERCASE address",address,5642,2914 N ASHLAND AVE ,2914 N ASHLAND AVE,=UPPER(TRIM(address))
+"Fix city typos and casing (CCHICAGO, CHCHICAGO, chicago, ...)",city,34,CCHICAGO,CHICAGO,"=IF(ISNUMBER(SEARCH(""CHICAGO"",UPPER(city))),""CHICAGO"",city)"
+Fill blank city with CHICAGO (all records come from the Chicago health department; flagged),city,9,(blank),CHICAGO,"=IF(city="""",""CHICAGO"",city)"
+"License 0 is a placeholder, set to blank (flagged)",license_,26,0,(blank),"=IF(license=0,"""",license)"
+Group free-text facility types into categories (raw text kept),facility_type,5754,Coffee shop / coffee shop / COFFEE SHOP,Coffee & Cafe,"keyword lookup: =IFERROR(VLOOKUP(""*""&keyword&""*"",map,2,0),""Other"") or Power Query conditional column"
+Blank facility type labelled Unknown (flagged),facility_type,246,(blank),Unknown,"=IF(type="""",""Unknown"",type)"
+Split 'Risk 1 (High)' into numeric level and label,risk,5993,Risk 1 (High),1 / High,"=VALUE(MID(risk,6,1))"
+Convert text timestamp to a real date (time part was always 00:00),inspection_date,6000,2010-01-05T00:00:00.000,2010-01-05,"=DATEVALUE(LEFT(date,10))"
+Group 44 inspection-type spellings into standard types (raw kept),inspection_type,1308,REINSPECTION / RE-INSPECTION OF CLOSE-UP,Canvass Re-inspection,keyword lookup or Power Query conditional column
+Spell out 'Pass w/ Conditions',results,446,Pass w/ Conditions,Pass with Conditions,"=SUBSTITUTE(result,""w/"",""with"")"
+Count violations packed in one cell (split into Violations sheet),violations,4255,30. FOOD IN ORIGINAL ... | 33. ...,violation_count = 2,"=LEN(v)-LEN(SUBSTITUTE(v,"" | "",""""))/3+1"
+Drop messy 'location' column (duplicate of latitude/longitude with stray newlines),location,5977,"\n,  \n(41.9, -87.6)",(removed),delete column
+"Remove exact duplicate inspections (same license, address, date, type, result, violations); first record kept",(row),59,"inspection ids 58318 to 58324 (Kendall College, same day)",1 row (58318),Data > Remove Duplicates on those 6 columns

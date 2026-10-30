@@ -1,0 +1,199 @@
+{
+  "random_150": {
+    "mine_vs_final": {
+      "n": 150,
+      "raw_agreement": 0.793,
+      "kappa": 0.566,
+      "kappa_95ci_bootstrap": [
+        0.426,
+        0.689
+      ]
+    },
+    "mine_vs_annotator1": {
+      "n": 150,
+      "raw_agreement": 0.793,
+      "kappa": 0.566
+    },
+    "mine_vs_annotator2": {
+      "n": 150,
+      "raw_agreement": 0.713,
+      "kappa": 0.379
+    },
+    "annotator1_vs_annotator2": {
+      "n": 150,
+      "raw_agreement": 0.867,
+      "kappa": 0.642
+    },
+    "annotator1_vs_final": {
+      "n": 150,
+      "raw_agreement": 1.0,
+      "kappa": 1.0
+    },
+    "annotator2_vs_final": {
+      "n": 150,
+      "raw_agreement": 0.867,
+      "kappa": 0.642
+    },
+    "subjective_share": {
+      "mine": 0.56,
+      "final": 0.7,
+      "annotator1": 0.7,
+      "annotator2": 0.82
+    },
+    "confusion_mine_rows_final_cols": [
+      [
+        40,
+        26
+      ],
+      [
+        5,
+        79
+      ]
+    ]
+  },
+  "hard_50": {
+    "mine_vs_final": {
+      "n": 50,
+      "raw_agreement": 0.66,
+      "kappa": -0.01
+    },
+    "mine_vs_annotator1": {
+      "n": 50,
+      "raw_agreement": 0.74,
+      "kappa": 0.069
+    },
+    "mine_vs_annotator2": {
+      "n": 50,
+      "raw_agreement": 0.26,
+      "kappa": -0.027
+    },
+    "annotator1_vs_annotator2": {
+      "n": 50,
+      "raw_agreement": 0.0,
+      "kappa": -0.083
+    },
+    "annotator1_vs_final": {
+      "n": 50,
+      "raw_agreement": 0.84,
+      "kappa": 0.145
+    },
+    "annotator2_vs_final": {
+      "n": 50,
+      "raw_agreement": 0.16,
+      "kappa": -0.033
+    },
+    "subjective_share": {
+      "mine": 0.26,
+      "final": 0.16,
+      "annotator1": 0.04,
+      "annotator2": 0.96
+    }
+  },
+  "all_200": {
+    "mine_vs_final": {
+      "n": 200,
+      "raw_agreement": 0.76,
+      "kappa": 0.522
+    },
+    "mine_vs_annotator1": {
+      "n": 200,
+      "raw_agreement": 0.78,
+      "kappa": 0.561
+    },
+    "mine_vs_annotator2": {
+      "n": 200,
+      "raw_agreement": 0.6,
+      "kappa": 0.217
+    },
+    "annotator1_vs_annotator2": {
+      "n": 200,
+      "raw_agreement": 0.65,
+      "kappa": 0.263
+    },
+    "annotator1_vs_final": {
+      "n": 200,
+      "raw_agreement": 0.96,
+      "kappa": 0.919
+    },
+    "annotator2_vs_final": {
+      "n": 200,
+      "raw_agreement": 0.69,
+      "kappa": 0.317
+    },
+    "subjective_share": {
+      "mine": 0.485,
+      "final": 0.565,
+      "annotator1": 0.535,
+      "annotator2": 0.855
+    }
+  },
+  "disagreements_by_direction": {
+    "I said Objective, published Subjective": 32,
+    "I said Subjective, published Objective": 16
+  },
+  "disagreements_by_reason_code": {
+    "MIXED_FACT": 10,
+    "FACT_EVENT": 9,
+    "FACT_NUMBER": 7,
+    "FACT_DEFECT": 6,
+    "MIXED_OPINION": 5,
+    "VAGUE": 4,
+    "OPINION_PRAISE": 3,
+    "OPINION_ANGER": 2,
+    "REQUEST": 2
+  },
+  "agreement_rate_by_reason_code": {
+    "FACT_DEFECT": {
+      "n": 28,
+      "agree": 0.79
+    },
+    "FACT_EVENT": {
+      "n": 24,
+      "agree": 0.62
+    },
+    "FACT_NUMBER": {
+      "n": 28,
+      "agree": 0.75
+    },
+    "MIXED_FACT": {
+      "n": 23,
+      "agree": 0.57
+    },
+    "MIXED_OPINION": {
+      "n": 15,
+      "agree": 0.67
+    },
+    "OPINION_ANGER": {
+      "n": 14,
+      "agree": 0.86
+    },
+    "OPINION_PRAISE": {
+      "n": 26,
+      "agree": 0.88
+    },
+    "REQUEST": {
+      "n": 14,
+      "agree": 0.86
+    },
+    "VAGUE": {
+      "n": 28,
+      "agree": 0.86
+    }
+  },
+  "agreement_rate_by_score": {
+    "1": 0.7,
+    "2": 0.88,
+    "3": 0.8,
+    "4": 0.67,
+    "5": 0.84
+  },
+  "tfidf_logreg_5fold": {
+    "macro_f1": 0.699,
+    "note": "sanity baseline only; out-of-fold probabilities used to flag suspicious labels"
+  },
+  "noise_flag_vs_my_disagreement": {
+    "sample_rows_where_model_strongly_opposes_published_label": 22,
+    "of_which_i_also_disagree": 14,
+    "my_disagreement_rate_elsewhere": 0.191
+  }
+}
