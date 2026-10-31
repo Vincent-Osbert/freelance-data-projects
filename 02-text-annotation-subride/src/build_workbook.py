@@ -17,6 +17,8 @@ DEST.parent.mkdir(exist_ok=True)
 res = pd.read_csv(OUT / "relabel_results.csv")
 dis = pd.read_csv(OUT / "disagreements.csv", keep_default_na=False)
 noise = pd.read_csv(OUT / "noise_flags.csv")
+prop = pd.read_csv(OUT / "adjudication_proposals.csv")
+dis = dis.merge(prop, on="sample_id", how="left")
 m = json.loads((OUT / "metrics.json").read_text())
 
 wb = xlsxwriter.Workbook(DEST)
@@ -118,21 +120,23 @@ ws.set_column(5, 5, 50)
 
 # --- Disagreements
 ws = wb.add_worksheet("Disagreements")
-heads = ["ID", "Stratum", "Review (Indonesian)", "Relabel", "Reason code", "Annotator 1", "Annotator 2", "Published", "Direction", "adjudicated_label", "adjudicator_note"]
-cols = ["sample_id", "stratum", "review", "my_label", "reason_code", "a1", "a2", "final", "direction"]
+heads = ["ID", "Stratum", "Review (Indonesian)", "Relabel", "Reason code", "Annotator 1", "Annotator 2", "Published", "Direction", "Claude proposal", "Proposal confidence", "Proposal note (Indonesian)", "adjudicated_label", "adjudicator_note"]
+cols = ["sample_id", "stratum", "review", "my_label", "reason_code", "a1", "a2", "final", "direction", "proposed_label", "confidence", "note"]
 for j, c in enumerate(heads):
     ws.write(0, j, c, h)
 for i, r in enumerate(dis[cols].itertuples(index=False), start=1):
     for j, v in enumerate(r):
         ws.write(i, j, v, cell)
-    ws.write(i, 9, "", F(border=1, bg_color="#FFF2CC"))
-    ws.write(i, 10, "", F(border=1, bg_color="#FFF2CC"))
-ws.data_validation(1, 9, len(dis), 9, {"validate": "list", "source": ["0", "1", "unsure"]})
+    ws.write(i, 12, "", F(border=1, bg_color="#FFF2CC"))
+    ws.write(i, 13, "", F(border=1, bg_color="#FFF2CC"))
+ws.data_validation(1, 12, len(dis), 12, {"validate": "list", "source": ["0", "1", "unsure"]})
 ws.set_column(0, 1, 9)
 ws.set_column(2, 2, 90)
 ws.set_column(3, 7, 11)
 ws.set_column(8, 8, 36)
-ws.set_column(9, 10, 20)
+ws.set_column(9, 10, 14)
+ws.set_column(11, 11, 50)
+ws.set_column(12, 13, 20)
 ws.freeze_panes(1, 1)
 
 # --- Noise flags
