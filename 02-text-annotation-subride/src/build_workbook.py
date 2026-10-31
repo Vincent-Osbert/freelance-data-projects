@@ -38,8 +38,8 @@ lines = [
      "CC BY 4.0, doi:10.17632/3gsbkm8p8r.2), and grouped every disagreement by reason.", wrap),
     ("", None),
     ("AI disclosure: the relabel was produced with an LLM (Claude) following the written guidelines, blind to all existing labels. "
-     "The 48 disagreements are queued for a native-speaker human adjudicator (sheet Disagreements, column adjudicated_label). "
-     "Until that is filled, every number here is pre-adjudication.", wrap),
+     "The 48 disagreements carry a proposed adjudication written by the same LLM, which a native-speaker human must confirm or change "
+     "(sheet Disagreements, column human_review). Until every row says confirmed or changed, every number here is pre-adjudication.", wrap),
     ("", None),
     (f"Headline: on 150 randomly drawn reviews the relabel agrees with the published label {rd['mine_vs_final']['raw_agreement']:.1%} of the time "
      f"(Cohen's kappa {rd['mine_vs_final']['kappa']}, 95% bootstrap CI {rd['mine_vs_final']['kappa_95ci_bootstrap'][0]} to "
@@ -120,15 +120,16 @@ ws.set_column(5, 5, 50)
 
 # --- Disagreements
 ws = wb.add_worksheet("Disagreements")
-heads = ["ID", "Stratum", "Review (Indonesian)", "Relabel", "Reason code", "Annotator 1", "Annotator 2", "Published", "Direction", "Claude proposal", "Proposal confidence", "Proposal note (Indonesian)", "adjudicated_label", "adjudicator_note"]
+heads = ["ID", "Stratum", "Review (Indonesian)", "Relabel", "Reason code", "Annotator 1", "Annotator 2", "Published", "Direction", "Claude proposal", "Proposal confidence", "Proposal note (Indonesian)", "adjudicated_label (prefilled from proposal)", "adjudicator_note", "human_review"]
 cols = ["sample_id", "stratum", "review", "my_label", "reason_code", "a1", "a2", "final", "direction", "proposed_label", "confidence", "note"]
 for j, c in enumerate(heads):
     ws.write(0, j, c, h)
 for i, r in enumerate(dis[cols].itertuples(index=False), start=1):
     for j, v in enumerate(r):
         ws.write(i, j, v, cell)
-    ws.write(i, 12, "", F(border=1, bg_color="#FFF2CC"))
+    ws.write(i, 12, int(r.proposed_label) if False else dis.loc[i - 1, "proposed_label"], F(border=1, bg_color="#FFF2CC"))
     ws.write(i, 13, "", F(border=1, bg_color="#FFF2CC"))
+    ws.write(i, 14, "pending review", F(border=1, bg_color="#FFF2CC"))
 ws.data_validation(1, 12, len(dis), 12, {"validate": "list", "source": ["0", "1", "unsure"]})
 ws.set_column(0, 1, 9)
 ws.set_column(2, 2, 90)
@@ -136,7 +137,8 @@ ws.set_column(3, 7, 11)
 ws.set_column(8, 8, 36)
 ws.set_column(9, 10, 14)
 ws.set_column(11, 11, 50)
-ws.set_column(12, 13, 20)
+ws.set_column(12, 14, 22)
+ws.data_validation(1, 14, len(dis), 14, {"validate": "list", "source": ["pending review", "confirmed by Vincent", "changed by Vincent"]})
 ws.freeze_panes(1, 1)
 
 # --- Noise flags

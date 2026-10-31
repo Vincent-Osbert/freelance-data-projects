@@ -7,7 +7,7 @@ How good are the labels in a public Indonesian text dataset, and where exactly d
 
 ## AI disclosure
 
-The relabel was produced with an LLM (Claude) following the written guidelines, blind to every existing label. The 48 reviews where it disagrees with the published label are queued for a native-speaker human to adjudicate (`deliverable/SubRide_Annotation_QA.xlsx`, sheet Disagreements). All figures below are pre-adjudication.
+The relabel was produced with an LLM (Claude) following the written guidelines, blind to every existing label. The 48 reviews where it disagrees with the published label carry an LLM-proposed adjudication that a native-speaker human must still confirm or change (`deliverable/SubRide_Annotation_QA.xlsx`, sheet Disagreements, column `human_review`). All figures below are pre-adjudication.
 
 ## Source
 

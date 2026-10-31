@@ -65,9 +65,15 @@ Cross-check against my relabel: in my sample, 22 reviews have a model probabilit
 - Add a praise-first rule: any review whose main content is thanks or praise is Subjective, whatever it mentions about price or time.
 - Validate v2 on a fresh blind sample before using it. Running it on the current 200 would be contaminated, so I did not.
 
+## Provisional adjudication (LLM-proposed, not yet human-reviewed)
+
+For each of the 48 disagreements the same LLM re-read the review and proposed a label (`data/output/adjudication_proposals.csv`, prefilled in the workbook with `human_review = pending review`). The proposal keeps my relabel in 46 of 48 cases and moves to the published label in 2. If it were accepted as is, 46 of the 200 published labels (23%) would be corrected, 30 of them among the 150 random reviews (20%).
+
+This is not an independent check: the proposer and the relabeller are the same model, so the kappa between the proposal and the published label (0.577 on the 150 random) repeats the first result and is not reported as a finding. The number that matters is the share of corrections a native speaker confirms. Until a human sets `human_review` to confirmed or changed on all 48 rows, treat everything here as pre-adjudication.
+
 ## Limits
 
-- One labeller, and it is an LLM, not a native-speaker human. The 48 disagreements are queued in `deliverable/SubRide_Annotation_QA.xlsx` (sheet Disagreements, column `adjudicated_label`) for a native speaker to resolve. Every figure above is pre-adjudication.
+- One labeller, and it is an LLM, not a native-speaker human. The 48 disagreements carry an LLM-proposed adjudication in `deliverable/SubRide_Annotation_QA.xlsx` (sheet Disagreements) that a native speaker still has to confirm or change (column `human_review`). Every figure above is pre-adjudication.
 - n = 150 gives a kappa interval of about 0.26 wide. Differences smaller than that are not evidence.
 - The sample is 15% of the dataset; findings about the other 85% rest on the model flags, not on manual review.
 - The English translations that ship with the dataset contain broken characters and were not used.
