@@ -7,7 +7,7 @@ How good are the labels in a public Indonesian text dataset, and where exactly d
 
 ## AI disclosure
 
-The relabel was produced with an LLM (Claude) following the written guidelines, blind to every existing label. The 48 reviews where it disagrees with the published label carry an LLM-proposed adjudication that a native-speaker human must still confirm or change (`deliverable/SubRide_Annotation_QA.xlsx`, sheet Disagreements, column `human_review`). All figures below are pre-adjudication.
+The relabel was produced with an LLM (Claude) following the written guidelines, blind to every existing label. The 48 reviews where it disagrees with the published label carry an LLM-proposed adjudication, which the project author (native Indonesian speaker) reviewed and accepted unchanged (sheet Disagreements, column `human_review`). That corrects 46 of 200 published labels (23%), 30 of 150 in the random sample (20%, 95% CI 14% to 27%). The kappa figures below are pre-adjudication.
 
 ## Source
 
@@ -45,4 +45,4 @@ pytest tests                # 6 checks
 
 ## Limits
 
-One labeller (an LLM), no native-speaker adjudication yet, n = 150 for the headline kappa (interval about 0.26 wide), and 15% of the dataset reviewed by hand. The report lists them in full.
+One labeller (an LLM), adjudication by confirming the LLM's proposals (anchoring possible), n = 150 for the headline kappa (interval about 0.26 wide), and 15% of the dataset reviewed by hand. The report lists them in full.

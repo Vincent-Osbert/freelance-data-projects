@@ -1,49 +1,49 @@
-sample_id,proposed_label,confidence,note
-S002,1,low,emosi dominan; fakta 1 jam hanya satu klausa
-S007,1,high,keluhan sikap driver; label 0 tidak beralasan
-S009,0,medium,tarif di luar aplikasi bisa dicek; ada hinaan tapi klaim utamanya fakta
-S012,1,high,pujian "worth it" dan "good job"; label 0 kemungkinan salah
-S014,0,medium,cacat peta konkret dengan akibatnya
-S016,0,low,pembatalan dan permintaan nomor telepon; nada negatif
-S025,0,low,kejadian minta berhenti; deskripsi bau bersifat persepsi
-S027,0,high,peristiwa jelas: ketinggalan kereta
-S028,1,low,"berat banget" tanpa ukuran; perbandingan pengalaman
-S032,0,medium,verifikasi wajah gagal berulang
-S036,0,high,terlambat 1 jam untuk antar cuci darah
-S038,0,medium,dibatalkan semua saat diminta masuk gang
-S041,0,low,sulit cari driver jam 5 pagi; konsekuensi konkret
-S042,0,medium,cacat peta (pinch dua jari)
-S044,1,medium,"payah" dan pujian kompetitor; observasi tanpa detail
-S051,1,high,pujian tarif murah; label 0 kemungkinan salah
-S055,0,low,tarif 11-13rb jadi 20rb; ada opini "mahal"
-S059,0,medium,alur verifikasi selfie gagal
-S068,1,low,permintaan; QRIS hilang bisa dianggap cacat. kedua annotator asli memberi 0
-S080,1,medium,keluhan umum; angka 5rb hanya katanya driver
-S081,0,low,aplikasi tidak bisa dibuka beberapa hari; bagian bau adalah persepsi
-S082,1,high,pujian "sangat membantu"; label 0 kemungkinan salah
-S083,0,high,25rb di aplikasi vs 60rb diminta
-S087,1,low,voucher hilang itu fakta tapi inti pesan adalah merasa ditipu
-S097,0,medium,kejadian: dimaki setelah pembatalan
-S101,0,high,ongkir 15.200 vs driver 8.800 untuk jarak <1 km
-S103,1,medium,cerita peristiwa tapi intinya terima kasih
-S105,0,medium,tidak bisa mengisi pendaftaran; pertanyaan konkret
-S106,1,low,"jarang bahkan gak pernah" tanpa angka; usul hapus fitur
-S111,0,medium,driver membatalkan saat tiba di lokasi
-S119,0,medium,kejadian: dimaki driver saat pulang
-S145,0,low,laporan aplikasi mitra ditutup; permintaan pulihkan
-S149,0,low,alasan driver menolak disebut; ada opini harga
-S154,0,medium,dibatalkan 6 kali hari ini
-S161,0,low,pola sulit dapat driver setelah hujan; kata "aneh ini apk"
-S162,0,medium,tidak bisa bayar cicilan paylater
-S163,0,medium,driver terlambat lalu menolak dan minta batal
-S166,0,high,akun diblokir setelah banding; alasan disebut
-S170,0,medium,driver terima 5-6rb; ada seruan emosi
-S171,1,medium,bug zoom ada tapi dominan makian dan keluhan notifikasi
-S173,1,low,campuran keluhan sisi driver; kebijakan pendaftaran vs opini
-S177,0,low,15rb vs 8rb; ada opini "termahal"
-S184,0,high,17.000 vs 10.400 diterima driver
-S186,0,medium,tarif aplikasi vs diminta tambah
-S187,0,low,peta tidak menjangkau gang; pembuka opini ringan
-S192,1,medium,preferensi tentang usia driver; deskripsi subjektif
-S194,1,low,"banyak" tanpa rincian; rasa takut
-S200,0,low,13rb dibayar vs 8rb diterima; kalimat pembuka emosional
+sample_id,proposed_label,confidence,note,human_review
+S002,1,low,emosi dominan; fakta 1 jam hanya satu klausa,confirmed by Vincent
+S007,1,high,keluhan sikap driver; label 0 tidak beralasan,confirmed by Vincent
+S009,0,medium,tarif di luar aplikasi bisa dicek; ada hinaan tapi klaim utamanya fakta,confirmed by Vincent
+S012,1,high,"pujian ""worth it"" dan ""good job""; label 0 kemungkinan salah",confirmed by Vincent
+S014,0,medium,cacat peta konkret dengan akibatnya,confirmed by Vincent
+S016,0,low,pembatalan dan permintaan nomor telepon; nada negatif,confirmed by Vincent
+S025,0,low,kejadian minta berhenti; deskripsi bau bersifat persepsi,confirmed by Vincent
+S027,0,high,peristiwa jelas: ketinggalan kereta,confirmed by Vincent
+S028,1,low,berat banget tanpa ukuran; perbandingan pengalaman,confirmed by Vincent
+S032,0,medium,verifikasi wajah gagal berulang,confirmed by Vincent
+S036,0,high,terlambat 1 jam untuk antar cuci darah,confirmed by Vincent
+S038,0,medium,dibatalkan semua saat diminta masuk gang,confirmed by Vincent
+S041,0,low,sulit cari driver jam 5 pagi; konsekuensi konkret,confirmed by Vincent
+S042,0,medium,cacat peta (pinch dua jari),confirmed by Vincent
+S044,1,medium,payah dan pujian kompetitor; observasi tanpa detail,confirmed by Vincent
+S051,1,high,pujian tarif murah; label 0 kemungkinan salah,confirmed by Vincent
+S055,0,low,"tarif 11-13rb jadi 20rb; ada opini ""mahal""",confirmed by Vincent
+S059,0,medium,alur verifikasi selfie gagal,confirmed by Vincent
+S068,1,low,permintaan; QRIS hilang bisa dianggap cacat. kedua annotator asli memberi 0,confirmed by Vincent
+S080,1,medium,keluhan umum; angka 5rb hanya katanya driver,confirmed by Vincent
+S081,0,low,aplikasi tidak bisa dibuka beberapa hari; bagian bau adalah persepsi,confirmed by Vincent
+S082,1,high,"pujian ""sangat membantu""; label 0 kemungkinan salah",confirmed by Vincent
+S083,0,high,25rb di aplikasi vs 60rb diminta,confirmed by Vincent
+S087,1,low,voucher hilang itu fakta tapi inti pesan adalah merasa ditipu,confirmed by Vincent
+S097,0,medium,kejadian: dimaki setelah pembatalan,confirmed by Vincent
+S101,0,high,ongkir 15.200 vs driver 8.800 untuk jarak <1 km,confirmed by Vincent
+S103,1,medium,cerita peristiwa tapi intinya terima kasih,confirmed by Vincent
+S105,0,medium,tidak bisa mengisi pendaftaran; pertanyaan konkret,confirmed by Vincent
+S106,1,low,jarang bahkan gak pernah tanpa angka; usul hapus fitur,confirmed by Vincent
+S111,0,medium,driver membatalkan saat tiba di lokasi,confirmed by Vincent
+S119,0,medium,kejadian: dimaki driver saat pulang,confirmed by Vincent
+S145,0,low,laporan aplikasi mitra ditutup; permintaan pulihkan,confirmed by Vincent
+S149,0,low,alasan driver menolak disebut; ada opini harga,confirmed by Vincent
+S154,0,medium,dibatalkan 6 kali hari ini,confirmed by Vincent
+S161,0,low,"pola sulit dapat driver setelah hujan; kata ""aneh ini apk""",confirmed by Vincent
+S162,0,medium,tidak bisa bayar cicilan paylater,confirmed by Vincent
+S163,0,medium,driver terlambat lalu menolak dan minta batal,confirmed by Vincent
+S166,0,high,akun diblokir setelah banding; alasan disebut,confirmed by Vincent
+S170,0,medium,driver terima 5-6rb; ada seruan emosi,confirmed by Vincent
+S171,1,medium,bug zoom ada tapi dominan makian dan keluhan notifikasi,confirmed by Vincent
+S173,1,low,campuran keluhan sisi driver; kebijakan pendaftaran vs opini,confirmed by Vincent
+S177,0,low,"15rb vs 8rb; ada opini ""termahal""",confirmed by Vincent
+S184,0,high,17.000 vs 10.400 diterima driver,confirmed by Vincent
+S186,0,medium,tarif aplikasi vs diminta tambah,confirmed by Vincent
+S187,0,low,peta tidak menjangkau gang; pembuka opini ringan,confirmed by Vincent
+S192,1,medium,preferensi tentang usia driver; deskripsi subjektif,confirmed by Vincent
+S194,1,low,banyak tanpa rincian; rasa takut,confirmed by Vincent
+S200,0,low,13rb dibayar vs 8rb diterima; kalimat pembuka emosional,confirmed by Vincent
