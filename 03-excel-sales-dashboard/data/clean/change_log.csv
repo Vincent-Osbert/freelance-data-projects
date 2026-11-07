@@ -1,0 +1,7 @@
+rule,rows_removed,rows_left
+Outside Dec 2010 - Nov 2011 (keep 12 full months),25525,516384
+Cancelled invoice (number starts with C),8928,507456
+Quantity zero or negative (stock adjustments),1306,506150
+Unit price zero or negative,1157,504993
+"Not a product (postage, fees, manual lines, samples)",2298,502695
+Exact duplicate line,4943,497752
